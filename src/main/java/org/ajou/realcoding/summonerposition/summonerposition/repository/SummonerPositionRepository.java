@@ -15,11 +15,16 @@ public class SummonerPositionRepository {
         return mongoTemplate.save(summonerPosition);
     }
 
-    public SummonerPosition findSummonerPositionBySummornerName(String summornerName){
+    public Boolean findSummonerPositionBySummornerName(String summornerName){
+
         Query query = new Query();
         query.addCriteria(Criteria.where("name").is(summornerName));
 
-        return mongoTemplate.findOne(query, SummonerPosition.class);
+        if(mongoTemplate.findOne(query, SummonerPosition.class) != null){
+            return true;
+        }
+        else
+            return false;
     }
 
 
