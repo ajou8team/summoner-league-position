@@ -9,6 +9,6 @@ public class SummonerService {
     OpenSummonerPositionApiClient openSummonerPositionApiClient;
 
     public SummonerPosition getSummonerPositionByName(String summonerName) {
-
+        return openSummonerPositionApiClient.getSummonerId(summonerName);
     }
 }
