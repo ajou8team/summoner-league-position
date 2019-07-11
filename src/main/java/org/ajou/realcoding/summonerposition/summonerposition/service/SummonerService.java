@@ -8,7 +8,7 @@ public class SummonerService {
     @Autowired
     OpenSummonerPositionApiClient openSummonerPositionApiClient;
 
-    public SummonerPosition getSummonerPositionName(String summonerPosotionByName) {
+    public SummonerPosition getSummonerPositionByName(String summonerName) {
 
     }
 }
