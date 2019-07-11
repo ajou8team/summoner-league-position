@@ -13,7 +13,7 @@ public class OpenSummonerPositionApiClient {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String apiKey = "RGAPI-c60c314c-9253-48c3-a118-0b9a57900086";
+    private final String apiKey = "b59b2f6b4c62b33a007db6708713d1e6";
     private final String SummonerRequseByNameUrl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{SummonerName}?api_key={apiKey}";
     private final String SummonerPositionByIdUrl = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{encryptedSummonerId}?api_key={apiKey}";
 
