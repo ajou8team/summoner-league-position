@@ -25,7 +25,7 @@ public class OpenSummonerPositionApiClient {
     }
 
     public SummonerPosition getSummonerPosition(String encryptedSummonerId){
-        SummonerPosition summonerPosition = restTemplate.exchange(SummonerRequseByNameUrl, HttpMethod.GET,null,SummonerPosition.class,encryptedSummonerId,apiKey).getBody();
+        SummonerPosition summonerPosition = restTemplate.exchange(SummonerPositionByIdUrl, HttpMethod.GET,null,SummonerPosition.class,encryptedSummonerId,apiKey).getBody();
         return summonerPosition;
     }
 }
