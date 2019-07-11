@@ -9,6 +9,12 @@ public class SummonerPositionController {
     @Autowired
     SummonerService summonerService;
 
+    @GetMapping("")
+    public SummonerPosition getSummonerPositionName(@PathVariable String summonerPosotionByName){
+        return summonerService.getSummonerPositionName(summonerPosotionByName);
+
+    }
+
 
 
 }
