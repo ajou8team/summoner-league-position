@@ -17,19 +17,15 @@ public class OpenSummonerPositionApiClient {
     private final String SummonerRequseByNameUrl = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{SummonerName}?api_key={apiKey}";
     private final String SummonerPositionByIdUrl = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{encryptedSummonerId}?api_key={apiKey}";
 
-    private SummonerId summonerId;
 
-    public void getSummonerId(String SummonerName){
-       summonerId = restTemplate.exchange(SummonerRequseByNameUrl, HttpMethod.GET,null,SummonerId.class,SummonerName,apiKey).getBody();
-       getSummonerPosition(summonerId.getId());
+    public SummonerPosition getSummonerId(String SummonerName){
+        SummonerId summonerId = restTemplate.exchange(SummonerRequseByNameUrl, HttpMethod.GET,null,SummonerId.class,SummonerName,apiKey).getBody();
+        SummonerPosition summonerPosition = getSummonerPosition(summonerId.getId());
+        return summonerPosition;
     }
 
     public SummonerPosition getSummonerPosition(String encryptedSummonerId){
         SummonerPosition summonerPosition = restTemplate.exchange(SummonerRequseByNameUrl, HttpMethod.GET,null,SummonerPosition.class,encryptedSummonerId,apiKey).getBody();
         return summonerPosition;
     }
-
-
-
-
 }
