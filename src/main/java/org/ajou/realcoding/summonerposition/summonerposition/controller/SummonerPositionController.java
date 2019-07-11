@@ -1,4 +1,4 @@
-package controller;
+package org.ajou.realcoding.summonerposition.summonerposition.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
