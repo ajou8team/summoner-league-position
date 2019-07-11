@@ -7,11 +7,11 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 @Configuration
 public class MongoConfig {
-@Bean
+    @Bean
     public MongoTemplate createMongoTemplate(){
 
     MongoClient mongoClient = new MongoClient("localhost", 27017);
-    String databaseName = " summoner-ID";
+    String databaseName = "summoner_DB";
     return new MongoTemplate(mongoClient, databaseName);
 
     }
