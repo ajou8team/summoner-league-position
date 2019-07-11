@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 public class SummonerPositionController {
 
+    @Autowired
     SummonerService summonerService;
 
 
