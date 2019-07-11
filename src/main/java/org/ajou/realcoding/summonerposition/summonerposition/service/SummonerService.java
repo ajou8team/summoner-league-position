@@ -5,6 +5,7 @@ import org.ajou.realcoding.summonerposition.summonerposition.domain.SummonerPosi
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class SummonerService {
+
     @Autowired
     OpenSummonerPositionApiClient openSummonerPositionApiClient;
 
