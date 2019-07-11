@@ -12,8 +12,8 @@ public class SummonerPositionController {
     SummonerService summonerService;
 
     @GetMapping("")
-    public SummonerPosition getSummonerPositionName(@PathVariable String summonerPosotionByName){
-        return summonerService.getSummonerPositionName(summonerPosotionByName);
+    public SummonerPosition getSummonerPositionByName(@PathVariable String summonerName){
+        return summonerService.getSummonerPositionName(summonerName);
 
     }
 
