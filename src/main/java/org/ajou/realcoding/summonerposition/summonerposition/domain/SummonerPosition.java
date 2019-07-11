@@ -24,29 +24,21 @@ import lombok.Data;
 
 @Data
 public class SummonerPosition {
-    @Data
-    public static class PersonalInfo{
+
         private String summonerName;
         private String summonerId;
         private String leagueId;
-    }
-    @Data
-    public static class rank{
+
         private String tier;
         private String rank;
-        private int leaguePoints;
-    }
-    @Data
-    public static class MatchRecord{
+
         private int wins;
         private int losses;
         private int leaguePoints;
-    }
-    @Data
-    public static class Other{
+
         private boolean hotStreak;
         private boolean veteran;
         private boolean inactive;
         private boolean freshBlood;
-    }
+
 }
