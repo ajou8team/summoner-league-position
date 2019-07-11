@@ -12,6 +12,14 @@ public class SummonerService {
     OpenSummonerPositionApiClient openSummonerPositionApiClient;
 
     public SummonerPosition getSummonerPositionByName(String summonerName) {
-        return openSummonerPositionApiClient.getSummonerId(summonerName);
+        SummonerPosition summonerPosition = openSummonerPositionApiClient.getSummonerPosition(summonerName);
+        /*
+        if(findSummonerIdByName(summonerName)){
+            updateSummonerPositionBySummonerName(summonerPosition);
+        } else{
+            createSummonerPosition(summonerPosition);
+        }
+         */
+        return summonerPosition;
     }
 }
