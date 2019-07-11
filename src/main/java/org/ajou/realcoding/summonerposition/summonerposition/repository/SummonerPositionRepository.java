@@ -27,13 +27,4 @@ public class SummonerPositionRepository {
             return false;
     }
 
-
-
-
-
-
-
-
-
-
 }
