@@ -9,13 +9,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class SummonerPositionRepository {
-
     @Autowired
     MongoTemplate mongoTemplate;
-
-    public SummonerPosition insertSummonerPosition(SummonerPosition summonerPosition){
-        return mongoTemplate.save(summonerPosition);
-    }
 
     public Boolean findSummonerPositionBySummornerName(String summornerName){
 
@@ -28,5 +23,16 @@ public class SummonerPositionRepository {
         else
             return false;
     }
+
+    public SummonerPosition insertSummonerPosition(SummonerPosition summonerPosition){
+        if(!findSummonerPositionBySummornerName(summonerPosition.getSummonerName())){
+            return mongoTemplate.save(summonerPosition);
+        }
+        
+
+        return summonerPosition;
+    }
+
+
 
 }
