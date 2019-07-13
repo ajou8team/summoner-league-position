@@ -8,9 +8,8 @@ import org.springframework.web.client.RestTemplate;
 public class HttpConfig {
 
     @Bean
-public RestTemplate createRestTemple()
-{
-
-    return new RestTemplate();
-}
+    public RestTemplate createRestTemple()
+    {
+        return new RestTemplate();
+    }
 }
