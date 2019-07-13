@@ -10,6 +10,6 @@ public class HttpConfig {
     @Bean
     public RestTemplate createRestTemple()
     {
-    return new RestTemplate();
+        return new RestTemplate();
     }
 }

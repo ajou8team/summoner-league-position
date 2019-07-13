@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Set;
+
 @RestController
 public class SummonerPositionController {
 
@@ -14,7 +16,7 @@ public class SummonerPositionController {
     SummonerService summonerService;
 
     @GetMapping("/summonerPositionByName/{summonerName}")
-    public SummonerPosition getSummonerPosition(@PathVariable String summonerName){
+    public Set<SummonerPosition> getSummonerPosition(@PathVariable String summonerName){
         return summonerService.getSummonerPositionByName(summonerName);
 
     }

@@ -3,9 +3,12 @@ package org.ajou.realcoding.summonerposition.summonerposition.api;
 import org.ajou.realcoding.summonerposition.summonerposition.domain.SummonerId;
 import org.ajou.realcoding.summonerposition.summonerposition.domain.SummonerPosition;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Set;
 
 @Service
 public class OpenSummonerPositionApiClient {
@@ -22,7 +25,8 @@ public class OpenSummonerPositionApiClient {
         return restTemplate.exchange(SummonerIdByNameUrl, HttpMethod.GET,null,SummonerId.class,SummonerName,apiKey).getBody();
     }
 
-    public SummonerPosition getSummonerPosition(String encryptedSummonerId){
-        return restTemplate.exchange(SummonerPositionByIdUrl, HttpMethod.GET,null,SummonerPosition.class,encryptedSummonerId,apiKey).getBody();
+    public Set<SummonerPosition> getSummonerPosition(String encryptedSummonerId){
+        return restTemplate.exchange(SummonerPositionByIdUrl, HttpMethod.GET, null,
+                new ParameterizedTypeReference<Set<SummonerPosition>>() {}, encryptedSummonerId, apiKey).getBody();
     }
 }

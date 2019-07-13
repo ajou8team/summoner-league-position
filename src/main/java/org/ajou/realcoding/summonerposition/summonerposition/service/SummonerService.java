@@ -6,15 +6,17 @@ import org.ajou.realcoding.summonerposition.summonerposition.domain.SummonerPosi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Service
 public class SummonerService {
 
     @Autowired
     OpenSummonerPositionApiClient openSummonerPositionApiClient;
 
-    public SummonerPosition getSummonerPositionByName(String summonerName) {
+    public Set<SummonerPosition> getSummonerPositionByName(String summonerName) {
         SummonerId summonerId = openSummonerPositionApiClient.getSummonerId(summonerName);
-        SummonerPosition summonerPosition = openSummonerPositionApiClient.getSummonerPosition(summonerId.getId());
+        Set<SummonerPosition> summonerPositionSet = openSummonerPositionApiClient.getSummonerPosition(summonerId.getId());
         /*
         if(findSummonerIdByName(summonerName)){
             updateSummonerPositionBySummonerName(summonerPosition);
@@ -22,6 +24,6 @@ public class SummonerService {
             createSummonerPosition(summonerPosition);
         }
          */
-        return summonerPosition;
+        return summonerPositionSet;
     }
 }
