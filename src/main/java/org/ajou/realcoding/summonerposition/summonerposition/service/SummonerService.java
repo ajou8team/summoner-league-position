@@ -1,14 +1,11 @@
 package org.ajou.realcoding.summonerposition.summonerposition.service;
 
 import org.ajou.realcoding.summonerposition.summonerposition.api.OpenSummonerPositionApiClient;
+import org.ajou.realcoding.summonerposition.summonerposition.domain.FinalSummonerDB;
 import org.ajou.realcoding.summonerposition.summonerposition.domain.SummonerId;
-import org.ajou.realcoding.summonerposition.summonerposition.domain.SummonerPosition;
 import org.ajou.realcoding.summonerposition.summonerposition.repository.SummonerPositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Iterator;
-import java.util.Set;
 
 @Service
 public class SummonerService {
@@ -17,15 +14,16 @@ public class SummonerService {
     @Autowired
     SummonerPositionRepository summonerPositionRepository;
 
-    public Set<SummonerPosition> getSummonerPositionByName(String summonerName) {
+
+    public FinalSummonerDB getSummonerPositionByName(String summonerName) {
         SummonerId summonerId = openSummonerPositionApiClient.getSummonerId(summonerName);
-        Set<SummonerPosition> summonerPositionSet = openSummonerPositionApiClient.getSummonerPosition(summonerId.getId());
+        FinalSummonerDB finalSummonerDB1 = new FinalSummonerDB();
+        finalSummonerDB1.setSummonerName(summonerName);
+        finalSummonerDB1.setSummonerPositions(openSummonerPositionApiClient.getSummonerPosition(summonerId.getId()));
 
-        Iterator<SummonerPosition> IterSummonerPosition = summonerPositionSet.iterator();
-        while(IterSummonerPosition.hasNext()){
-            summonerPositionRepository.insertSummonerPosition(IterSummonerPosition.next());
-        }
 
-        return summonerPositionSet;
+         summonerPositionRepository.insertOrUpdateSummonerPosition(finalSummonerDB1);
+
+        return finalSummonerDB1;
     }
 }
