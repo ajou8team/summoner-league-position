@@ -3,42 +3,52 @@ package org.ajou.realcoding.summonerposition.summonerposition.domain;
 import lombok.Data;
 
 /*
-[
-    {
-        "queueType": "RANKED_SOLO_5x5",
-        "summonerName": "Hide on bush",
-        "hotStreak": true,
-        "wins": 332,
-        "veteran": true,
-        "losses": 337,
-        "rank": "I",
-        "tier": "CHALLENGER",
-        "inactive": false,
-        "freshBlood": false,
-        "leagueId": "ba73b86b-97c9-3dfc-856e-88777fec7e56",
-        "summonerId": "CZxLcXLabbMmg35pSK7Qsl9QPkDaIAavSuQij8_9SY2x9g",
-        "leaguePoints": 817
-    }
-]
+LeagueEntryDTO
+NAME	DATA TYPE	DESCRIPTION
+queueType	    string
+summonerName	string
+hotStreak	    boolean
+miniSeries	    MiniSeriesDTO
+wins	        int
+veteran	        boolean
+losses	        int
+rank	        string
+leagueId	    string
+inactive	    boolean
+freshBlood	    boolean
+tier	        string
+summonerId	    string	Player's summonerId (Encrypted)
+leaguePoints	int
+
+miniSeries:
+progress	string
+losses	int
+target	int
+wins	int
  */
 
 @Data
 public class SummonerPosition {
+    private String queueType;
+    private String summonerName;
+    private boolean hotStreak;
+    private miniSeries MiniSeriesDTO;
+    private int wins;
+    private boolean veteran;
+    private int losses;
+    private String rank;
+    private String leagueId;
+    private boolean inactive;
+    private boolean freshBlood;
+    private String tier;
+    private String summonerId;
+    private int leaguePoints;
 
-        private String summonerName;
-        private String summonerId;
-        private String leagueId;
-
-        private String tier;
-        private String rank;
-
-        private int wins;
+    @Data
+    public static class miniSeries{
+        private String progress;
         private int losses;
-        private int leaguePoints;
-
-        private boolean hotStreak;
-        private boolean veteran;
-        private boolean inactive;
-        private boolean freshBlood;
-
+        private int target;
+        private int wins;
+    }
 }
