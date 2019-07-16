@@ -1,6 +1,9 @@
 package org.ajou.realcoding.summonerposition.summonerposition.domain;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+
+
 
 /*
 LeagueEntryDTO
@@ -30,7 +33,10 @@ wins	int
 @Data
 public class SummonerPosition {
     private String queueType;
+
+
     private String summonerName;
+
     private boolean hotStreak;
     private miniSeries MiniSeriesDTO;
     private int wins;
